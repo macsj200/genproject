@@ -1,6 +1,12 @@
 #!/bin/zsh
 PROJECTS_DIR="$HOME/projects"
 
+if [ -z "$1" ]
+  then
+    echo "no project name supplied, exiting"
+    exit 1
+fi
+
 target="$PROJECTS_DIR/$1"
 
 echo "Creating new project $1 in $target"
