@@ -1,5 +1,5 @@
 #!/bin/zsh
-PROJECTS_DIR="~/projects"
+PROJECTS_DIR="$HOME/projects"
 
 target="$PROJECTS_DIR/$1"
 
