@@ -1,0 +1,21 @@
+#!/bin/zsh
+PROJECTS_DIR="~/projects"
+
+target="$PROJECTS_DIR/$1"
+
+echo "Creating new project $1 in $target"
+
+mkdir $target
+
+cd $target
+
+echo "directory created, initializing git"
+
+echo "$1" >> README.md
+echo "==============" >> README.md
+
+git init
+
+git add README.md
+
+git commit -m "Initialize repo"
