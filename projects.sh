@@ -2,9 +2,13 @@
 # To use this file, you need to edit your bashrc/bash_profile 
 # and source this script. If you project directory does not look 
 # like PROJECTS_DIR, you will need to change it to match that directory
-PROJECTS_DIR="$HOME/projects"
 # Function that creates a new project
-function newproject() {
+
+PROJECT_CONFIG="$PROJECTS_DIR/.config"
+if [ ! -f $PROJECT_CONFIG ]; then
+    touch PROJECT_CONFIG
+fi
+function new-project() {
     if [ -z "$1" ]
       then
         echo "no project name supplied, exiting"
@@ -27,11 +31,15 @@ function newproject() {
 }
 # Function that sets the current project
 function set-project() {
-    if [ $# -ne 1 ]; then
-        echo "command should be formatted as 'set-project <project-dir>'"
+    if [[ $# > 1 ]]; then
+        echo "command should be formatted as 'set-project [<project-dir>]'"
         exit 1
+    elif [$# -eq 1]; then
+        dir = $1
+    else
+        dir = "."
     fi
-    if [ "$1" = "." ]; then 
+    if [ "$dir" = "." ]; then 
         dir=$(pwd)
     else
         dir="$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"

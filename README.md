@@ -1,6 +1,5 @@
 #Genproject
 ==========
-
 Some zsh that'll help you manage your projects better.
 
 Simply clone the repo, edit your .bash_profile or .bashrc as so
