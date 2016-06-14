@@ -34,10 +34,10 @@ function set-project() {
     if [[ $# > 1 ]]; then
         echo "command should be formatted as 'set-project [<project-dir>]'"
         exit 1
-    elif [$# -eq 1]; then
-        dir = $1
+    elif [ $# -eq 1 ]; then
+        dir=$1
     else
-        dir = "."
+        dir="."
     fi
     if [ "$dir" = "." ]; then 
         dir=$(pwd)
@@ -51,4 +51,4 @@ function get-project() {
     projdir=$(<$PROJECT_CONFIG)
     echo $projdir
 }
-alias project="cd $(get-project)" 
+function project() { cd $(get-project) }
