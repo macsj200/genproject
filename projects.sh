@@ -21,9 +21,8 @@ function new-project() {
     cd $target
 
     echo "directory created, initializing git"
-
-    echo "$1" >> README.md
-    echo "==============" >> README.md
+    touch README.md
+    echo "#$1" >> README.md
 
     git init
     git add README.md
