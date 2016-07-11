@@ -6,7 +6,7 @@
 
 PROJECT_CONFIG="$PROJECTS_DIR/.config"
 if [ ! -f $PROJECT_CONFIG ]; then
-    touch PROJECT_CONFIG
+    touch $PROJECT_CONFIG
 fi
 function new-project() {
     if [ -z "$1" ]
